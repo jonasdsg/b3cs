@@ -3,10 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.jonasdsg</groupId>
-    <artifactId>fcs</artifactId>
+    <artifactId>b3cs</artifactId>
     <version>0.2</version>
     <packaging>jar</packaging>
-
+    <name>b3-collector-service</name>
+    
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
