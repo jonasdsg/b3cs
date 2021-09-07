@@ -4,4 +4,5 @@ public class FundAboutDTO {
     public String data;
     public String contact;
     public String historyURI;
+    public HistoryDTO history;
 }
