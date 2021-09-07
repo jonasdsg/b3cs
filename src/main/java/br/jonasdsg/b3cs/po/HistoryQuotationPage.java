@@ -14,15 +14,15 @@ public class HistoryQuotationPage {
     private static final String ID_MERC_VISTA = "//*[@id=\"MercVista\"]";
     private static final String MERCADOS_BUTTOM = "//*[@id=\"RES_MERCADOS\"]";
     private static final String YEAR_SELECT_PATH = "//*[@id=\"cboAno\"]";
-    private static final String HISTORY_PATH = "/html/body/table[2]/tbody/tr[3]/td/table[2]/tbody/tr[2]/td/table/tbody/tr[1]/td[1]/a/img";
+    private static final String HISTORY_PATH = "/html/body/table[2]/tbody/tr[3]/td/table[2]/tbody/tr[2]/td/table/tbody/tr[1]/td[1]/a";
     private WebDriver driver;
 
     public HistoryQuotationPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void open() {
-        driver.get("http://bvmf.bmfbovespa.com.br/SIG/FormConsultaNegociacoes.asp?strTipoResumo=RES_NEGOCIACOES&strSocEmissora=AFHI&strDtReferencia=08-2021&strIdioma=P&intCodNivel=1&intCodCtrl=100");
+    public void open(String uri) {
+        driver.get(uri);
     }
 
     public void close() {

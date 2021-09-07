@@ -6,22 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class HistoryQuotationPageTest {
-    private static HistoryQuotationPage history;
-
-    @BeforeAll
-    public static void beforeAll() {
-        history = new HistoryQuotationPage(getDriver());
-    }
+    private HistoryQuotationPage history;
 
     @BeforeEach
     public void beforeEach() {
-        history.open();
+        FundosInvestimentosPage fip = new FundosInvestimentosPage(getDriver());
+        String uri = fip.getFundsInformationsAbout("AFOF").history;
+        history = new HistoryQuotationPage(fip.getDriver());
+        history.open(uri);
     }
 
     @AfterEach
