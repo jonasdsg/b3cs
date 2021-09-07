@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
+import br.jonasdsg.b3cs.dto.FundAboutDTO;
+
 public class FundosInvestimentosPage {
     private static final String HISTORY_PAGE_URL = "//*[@id=\"divContainerIframeB3\"]/app-funds-about/div/div[1]/div[3]/div/div/div/p/a";
     private static final String INNER_HTML = "innerHTML";
@@ -61,10 +63,10 @@ public class FundosInvestimentosPage {
         catch (InterruptedException e) { throw new RuntimeException(e);}
     }
 
-    public FundAbout getFundsInformationsAbout(String code) {
+    public FundAboutDTO getFundsInformationsAbout(String code) {
         goToPageFoundInformation(code).click();
         sleep();
-        FundAbout about = new FundAbout();
+        FundAboutDTO about = new FundAboutDTO();
         driver.findElement(By.xpath(CARDS_FUNDS_INFORMATION)).findElements(By.tagName("div"))
             .forEach(div ->{
                 if(div.getText().toLowerCase().contains("dados")){
@@ -75,7 +77,7 @@ public class FundosInvestimentosPage {
                 }
             });
 
-            about.history = driver.findElement(By.xpath(HISTORY_PAGE_URL)).getAttribute("href");
+            about.historyURI = driver.findElement(By.xpath(HISTORY_PAGE_URL)).getAttribute("href");
 
         return about;
     }

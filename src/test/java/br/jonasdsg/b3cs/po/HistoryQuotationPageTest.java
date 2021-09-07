@@ -16,7 +16,7 @@ public class HistoryQuotationPageTest {
     @BeforeEach
     public void beforeEach() {
         FundosInvestimentosPage fip = new FundosInvestimentosPage(getDriver());
-        String uri = fip.getFundsInformationsAbout("AFOF").history;
+        String uri = fip.getFundsInformationsAbout("AFOF").historyURI;
         history = new HistoryQuotationPage(fip.getDriver());
         history.open(uri);
     }

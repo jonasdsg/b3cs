@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import br.jonasdsg.b3cs.dto.FundAboutDTO;
+
 public class FundosInvestimentosPageTest {
     private FundosInvestimentosPage mainPage;
 
@@ -48,10 +50,10 @@ public class FundosInvestimentosPageTest {
     @Test
     public void test(){
         assertDoesNotThrow(()->{
-            FundAbout about = mainPage.getFundsInformationsAbout("BLCA");
+            FundAboutDTO about = mainPage.getFundsInformationsAbout("BLCA");
             assertNotNull(about.contact);
             assertNotNull(about.data);
-            assertNotNull(about.history);
+            assertNotNull(about.historyURI);
         });
     }
 
