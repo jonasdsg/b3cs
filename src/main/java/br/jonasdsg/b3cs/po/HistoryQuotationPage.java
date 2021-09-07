@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import br.jonasdsg.b3cs.shared.SharedConfiguration;
 
 public class HistoryQuotationPage {
+    private static final String INNER_HTML = "innerHTML";
     private static final String TABLE_DAILY_PRICES = "//*[@id=\"tblResDiario\"]/tbody/tr[2]/td/table";
     private static final String ID_MERC_VISTA = "//*[@id=\"MercVista\"]";
     private static final String MERCADOS_BUTTOM = "//*[@id=\"RES_MERCADOS\"]";
@@ -73,7 +74,7 @@ public class HistoryQuotationPage {
             getDriver().get(m);
             WebElement table = getTablePrices();
             if(table != null){
-                tables.add(table.getText());
+                tables.add(table.getAttribute(INNER_HTML));
             }
         });
 
