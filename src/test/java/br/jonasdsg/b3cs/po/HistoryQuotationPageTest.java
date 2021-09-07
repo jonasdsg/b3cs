@@ -60,4 +60,17 @@ public class HistoryQuotationPageTest {
         });
     }
 
+    @Test
+    public void getMonthsOfTest(){
+        assertDoesNotThrow(()->{
+            history.getSelectOfYears();
+        });
+    }
+
+    @Test
+    public void getHistoryDtoTest(){
+        assertDoesNotThrow(()->{
+             System.out.println(history.getHistoryDTO()); 
+        });
+    }
 }
