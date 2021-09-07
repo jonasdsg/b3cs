@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 public class FundosInvestimentosPage {
+    private static final String HISTORY_PAGE_URL = "//*[@id=\"divContainerIframeB3\"]/app-funds-about/div/div[1]/div[3]/div/div/div/p/a";
+    private static final String INNER_HTML = "innerHTML";
     private static final String CARDS_FUNDS_INFORMATION = "//*[@id=\"divContainerIframeB3\"]/app-funds-about/div/div[1]";
     private static final String FIRST_CARD_PATH = "//*[@id=\"nav-bloco\"]/div/div/a/div/div";
     private static final String PATH_FIND_BUTTOM = "/html/body/app-root/app-funds-home/div/form/div[1]/div/div/div[1]/div/div[2]/button";
@@ -66,14 +68,15 @@ public class FundosInvestimentosPage {
         driver.findElement(By.xpath(CARDS_FUNDS_INFORMATION)).findElements(By.tagName("div"))
             .forEach(div ->{
                 if(div.getText().toLowerCase().contains("dados")){
-                    about.data = div; 
+                    about.data = div.getAttribute(INNER_HTML); 
                 }
                 if(div.getText().toLowerCase().contains("contatos")){
-                    about.contact = div;
+                    about.contact = div.getAttribute(INNER_HTML);
                 }
-            });;
-        driver.findElement(By.xpath("//*[@id=\"divContainerIframeB3\"]/app-funds-about/div/div[1]/div[3]/div/div/div/p/a")).click();
-        about.history = driver;
+            });
+
+            about.history = driver.findElement(By.xpath(HISTORY_PAGE_URL)).getAttribute("href");
+
         return about;
     }
 }

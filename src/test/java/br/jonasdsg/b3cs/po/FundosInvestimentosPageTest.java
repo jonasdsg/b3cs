@@ -52,7 +52,6 @@ public class FundosInvestimentosPageTest {
             assertNotNull(about.contact);
             assertNotNull(about.data);
             assertNotNull(about.history);
-            about.history.close();
         });
     }
 
